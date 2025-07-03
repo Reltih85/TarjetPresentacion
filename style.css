@@ -11,26 +11,6 @@ body {
   padding: 1rem;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.card {
-  background: white;
-  border-radius: 15px;
-  padding: 1rem;
-  color: #333;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-}
-
 .card:hover {
   transform: translateY(-8px);
 }
@@ -128,7 +108,7 @@ body {
 .grid-container {
       position: relative;
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 🔥 Esto hace que se acomode solo */
       grid-template-rows: auto auto auto;
       gap: 20px;
       padding: 40px;
@@ -289,4 +269,23 @@ body {
 .tech-icons i:hover {
   transform: scale(1.2);
   filter: drop-shadow(0 0 6px rgba(0, 255, 255, 1));
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .card,
+  .card-large,
+  .card-contact,
+  .cv-viewer {
+    width: 100%;
+    height: auto;
+  }
+
+  iframe {
+    height: 320px; /* CV en PDF visible */
+  }
 }
